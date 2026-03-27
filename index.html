@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELOX Pro | Óculos Esportivos de Alta Performance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #121212;
+            --bg-card: #1a1a1a;
+            --bg-card-hover: #252525;
+            --neon-green: #39FF14;
+            --neon-green-dark: #2ecc40;
+            --text-white: #ffffff;
+            --text-gray: #a0a0a0;
+            --text-gray-light: #d0d0d0;
+            --gradient-primary: linear-gradient(135deg, #39FF14 0%, #2ecc40 100%);
+            --shadow-glow: 0 0 20px rgba(57, 255, 20, 0.4);
+            --shadow-glow-strong: 0 0 40px rgba(57, 255, 20, 0.6);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: var(--bg-dark);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-glow-strong);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(57, 255, 20, 0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--text-white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--neon-green);
+        }
+
+        .nav-cta {
+            padding: 12px 28px;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(18,18,18,0.9) 0%, rgba(18,18,18,0.7) 50%, rgba(18,18,18,0.9) 100%);
+            z-index: 1;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://image.qwenlm.ai/public_source/67f2288e-e0de-4799-bf6f-06142608c664/103b16f72-f54f-4f13-a790-bde4c2a2ec16.png');
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+            animation: slowZoom 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(57, 255, 20, 0.1);
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            text-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 .highlight {
+            color: var(--neon-green);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-gray-light);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .hero-trust {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .hero-trust-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-trust-item svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--neon-green);
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 550px;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 60px rgba(57, 255, 20, 0.2);
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--neon-green);
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .hero-glow-1 {
+            top: -100px;
+            right: -100px;
+        }
+
+        .hero-glow-2 {
+            bottom: -100px;
+            left: -100px;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--bg-card);
+            border-top: 1px solid rgba(57, 255, 20, 0.2);
+            border-bottom: 1px solid rgba(57, 255, 20, 0.2);
+            padding: 30px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--neon-green);
+            margin-bottom: 8px;
+        }
+
+        .stat-item p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 120px 0;
+            background: var(--bg-dark);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-tag {
+            color: var(--neon-green);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .comparison-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .comparison-card.bad {
+            border: 1px solid rgba(255, 100, 100, 0.3);
+        }
+
+        .comparison-card.good {
+            border: 1px solid var(--neon-green);
+            background: linear-gradient(135deg, rgba(57, 255, 20, 0.05) 0%, rgba(18, 18, 18, 0) 100%);
+        }
+
+        .comparison-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .comparison-card.bad h3 {
+            color: #ff6b6b;
+        }
+
+        .comparison-card.good h3 {
+            color: var(--neon-green);
+        }
+
+        .problem-list {
+            list-style: none;
+        }
+
+        .problem-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            color: var(--text-gray-light);
+        }
+
+        .problem-list li:last-child {
+            border-bottom: none;
+        }
+
+        .problem-list li svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .bad .problem-list li svg {
+            fill: #ff6b6b;
+        }
+
+        .good .problem-list li svg {
+            fill: var(--neon-green);
+        }
+
+        /* Technology Section */
+        .technology {
+            padding: 120px 0;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-card) 100%);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .tech-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .tech-card:hover {
+            border-color: var(--neon-green);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(57, 255, 20, 0.1);
+        }
+
+        .tech-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(57, 255, 20, 0.1);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .tech-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--neon-green);
+        }
+
+        .tech-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .tech-content p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .tech-highlight {
+            color: var(--neon-green);
+            font-weight: 600;
+        }
+
+        /* Product Showcase */
+        .product-showcase {
+            padding: 120px 0;
+            background: var(--bg-dark);
+            position: relative;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .showcase-image {
+            position: relative;
+        }
+
+        .showcase-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .showcase-features {
+            list-style: none;
+        }
+
+        .showcase-features li {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .showcase-features li svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--neon-green);
+            flex-shrink: 0;
+        }
+
+        .showcase-features li strong {
+            color: var(--text-white);
+            margin-right: 8px;
+        }
+
+        .showcase-features li span {
+            color: var(--text-gray);
+        }
+
+        /* Social Proof */
+        .social-proof {
+            padding: 120px 0;
+            background: var(--bg-card);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-dark);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .testimonial-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-stars svg {
+            width: 18px;
+            height: 18px;
+            fill: #FFD700;
+        }
+
+        .testimonial-text {
+            color: var(--text-gray-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--bg-dark);
+            font-size: 1.2rem;
+        }
+
+        .testimonial-info h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-info p {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+        }
+
+        .proof-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .proof-stat {
+            text-align: center;
+        }
+
+        .proof-stat h3 {
+            font-size: 3rem;
+            color: var(--neon-green);
+            margin-bottom: 8px;
+        }
+
+        .proof-stat p {
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        /* Offer Section */
+        .offer {
+            padding: 120px 0;
+            background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg-dark) 100%);
+            position: relative;
+        }
+
+        .offer-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: 30px;
+            padding: 60px;
+            border: 2px solid var(--neon-green);
+            box-shadow: 0 0 60px rgba(57, 255, 20, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 30px;
+            right: -50px;
+            background: var(--gradient-primary);
+            color: var(--bg-dark);
+            padding: 10px 60px;
+            transform: rotate(45deg);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .offer-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .offer-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .offer-header p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        .offer-product {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .offer-product-image {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .offer-product-image img {
+            width: 100%;
+            border-radius: 16px;
+        }
+
+        .offer-product-details {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .offer-product-details h3 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+        }
+
+        .offer-bonuses {
+            background: rgba(57, 255, 20, 0.05);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+
+        .offer-bonuses h4 {
+            color: var(--neon-green);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bonus-list {
+            list-style: none;
+        }
+
+        .bonus-list li {
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-gray-light);
+        }
+
+        .bonus-list li svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--neon-green);
+            flex-shrink: 0;
+        }
+
+        .offer-pricing {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .price-old {
+            font-size: 1.5rem;
+            color: var(--text-gray);
+            text-decoration: line-through;
+            margin-bottom: 8px;
+        }
+
+        .price-new {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--neon-green);
+            line-height: 1;
+        }
+
+        .price-new span {
+            font-size: 1.5rem;
+            vertical-align: top;
+        }
+
+        .price-installments {
+            color: var(--text-gray);
+            margin-top: 8px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .countdown-item {
+            background: var(--bg-dark);
+            border-radius: 12px;
+            padding: 16px 24px;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .countdown-item span {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--neon-green);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .countdown-item label {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .offer-cta {
+            text-align: center;
+        }
+
+        .offer-cta .btn {
+            width: 100%;
+            max-width: 400px;
+            font-size: 1.3rem;
+            padding: 22px 50px;
+        }
+
+        .offer-guarantee {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .offer-guarantee svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--neon-green);
+        }
+
+        /* Guarantee Section */
+        .guarantee {
+            padding: 100px 0;
+            background: var(--bg-dark);
+        }
+
+        .guarantee-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .guarantee-seal {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-glow-strong);
+        }
+
+        .guarantee-seal svg {
+            width: 70px;
+            height: 70px;
+            fill: var(--bg-dark);
+        }
+
+        .guarantee h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .guarantee p {
+            color: var(--text-gray-light);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 120px 0;
+            background: var(--bg-card);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-dark);
+            border-radius: 16px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .faq-question {
+            padding: 24px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(57, 255, 20, 0.05);
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--neon-green);
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            padding: 0 30px 24px;
+            color: var(--text-gray);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-gray);
+            margin-top: 16px;
+            max-width: 300px;
+        }
+
+        .footer-column h4 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: var(--text-white);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--neon-green);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 12px;
+        }
+
+        .payment-methods span {
+            background: var(--bg-card);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .floating-cta .btn {
+            padding: 16px 32px;
+            box-shadow: 0 10px 40px rgba(57, 255, 20, 0.4);
+        }
+
+        /* Scroll Animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 2;
+            }
+
+            .hero-image {
+                order: 1;
+            }
+
+            .hero-cta-group {
+                align-items: center;
+            }
+
+            .hero-trust {
+                justify-content: center;
+            }
+
+            .comparison-grid,
+            .tech-grid,
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .offer-container {
+                padding: 40px 24px;
+            }
+
+            .price-new {
+                font-size: 3rem;
+            }
+
+            .countdown {
+                gap: 10px;
+            }
+
+            .countdown-item {
+                min-width: 60px;
+                padding: 12px 16px;
+            }
+
+            .countdown-item span {
+                font-size: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .floating-cta {
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+            }
+
+            .floating-cta .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 14px 28px;
+                font-size: 1rem;
+            }
+
+            .offer-product {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#39FF14"/>
+                    <path d="M2 23L16 30L30 23V9L16 16L2 9V23Z" fill="#39FF14" fill-opacity="0.5"/>
+                </svg>
+                VELOX<span>PRO</span>
+            </a>
+            <a href="#offer" class="btn btn-primary nav-cta">Comprar Agora</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge"> Lançamento Exclusivo 2025</span>
+                <h1>
+                    DOMINE A LUZ.<br>
+                    <span class="highlight">PROTEJA SUA VISÃO.</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Óculos esportivos com tecnologia militar polarizada. 
+                    25g de peso invisível. Aderência total mesmo sob suor intenso.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#offer" class="btn btn-primary">QUERO PERFORMANCE AGORA</a>
+                    <div class="hero-trust">
+                        <div class="hero-trust-item">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            Frete Grátis
+                        </div>
+                        <div class="hero-trust-item">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            30 Dias de Teste
+                        </div>
+                        <div class="hero-trust-item">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            Garantia de 1 Ano
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://image.qwenlm.ai/public_source/67f2288e-e0de-4799-bf6f-06142608c664/1deb4c61e-5816-41d3-bce4-6cd420a2cf0b.png" alt="Óculos VELOX Pro">
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item scroll-reveal">
+                    <h3>10K+</h3>
+                    <p>Atletas Ativos</p>
+                </div>
+                <div class="stat-item scroll-reveal">
+                    <h3>4.9★</h3>
+                    <p>Avaliação Média</p>
+                </div>
+                <div class="stat-item scroll-reveal">
+                    <h3>UV400</h3>
+                    <p>Proteção Total</p>
+                </div>
+                <div class="stat-item scroll-reveal">
+                    <h3>25g</h3>
+                    <p>Peso Ultraleve</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">O Problema</span>
+                <h2>VOCÊ AINDA USA ÓCULOS COMUNS NO ESPORTE?</h2>
+                <p>Atletas que não usam equipamento adequado perdem até 30% de performance devido a desconforto e visão comprometida.</p>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-card bad scroll-reveal">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        Óculos Comuns
+                    </h3>
+                    <ul class="problem-list">
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                            Escorregam com o suor
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                            Embaçam durante o exercício
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                            Proteção UV inadequada
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                            Peso excessivo causa fadiga
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                            Visão turva em alta velocidade
+                        </li>
+                    </ul>
+                </div>
+                <div class="comparison-card good scroll-reveal">
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                        VELOX Pro
+                    </h3>
+                    <ul class="problem-list">
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Hastes antiderrapantes certificadas
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Tecnologia anti-embaçante
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Proteção UV400 militar
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Apenas 25 gramas de peso
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Nitidez HD em qualquer velocidade
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">Tecnologia</span>
+                <h2>ENGENHARIA DE ALTA PERFORMANCE</h2>
+                <p>Cada detalhe foi projetado para atletas que não aceitam menos que a excelência.</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card scroll-reveal">
+                    <div class="tech-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    </div>
+                    <div class="tech-content">
+                        <h3>Lentes Polarizadas <span class="tech-highlight">Grau Militar</span></h3>
+                        <p>Proteção UV400 comprovada em laboratório. Elimina 99.9% dos reflexos e oferece nitidez cristalina em qualquer condição de luz.</p>
+                    </div>
+                </div>
+                <div class="tech-card scroll-reveal">
+                    <div class="tech-icon">
+                        <svg viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
+                    </div>
+                    <div class="tech-content">
+                        <h3>Estrutura <span class="tech-highlight">TR90 Indestrutível</span></h3>
+                        <p>Material usado em equipamentos aeroespaciais. Resistente a impactos extremos e flexível o suficiente para nunca quebrar.</p>
+                    </div>
+                </div>
+                <div class="tech-card scroll-reveal">
+                    <div class="tech-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                    <div class="tech-content">
+                        <h3>Hastes <span class="tech-highlight">Antiderrapantes</span></h3>
+                        <p>Revestimento em borracha de alta aderência. Mantém o óculo firme mesmo nas condições mais extremas de suor e movimento.</p>
+                    </div>
+                </div>
+                <div class="tech-card scroll-reveal">
+                    <div class="tech-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"/></svg>
+                    </div>
+                    <div class="tech-content">
+                        <h3>Design <span class="tech-highlight">Aerodinâmico</span></h3>
+                        <p>Testado em túnel de vento para reduzir resistência do ar. Formato envolvente que protege contra vento, poeira e detritos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="product-showcase">
+        <div class="container">
+            <div class="showcase-grid">
+                <div class="showcase-image scroll-reveal">
+                    <img src="https://image.qwenlm.ai/public_source/67f2288e-e0de-4799-bf6f-06142608c664/189f93a7c-5ad3-4868-816c-e82eb068368d.png" alt="Detalhe VELOX Pro">
+                </div>
+                <div class="showcase-content scroll-reveal">
+                    <span class="section-tag">Especificações</span>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 30px;">DETALHES QUE FAZEM A DIFERENÇA</h2>
+                    <ul class="showcase-features">
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <strong>Peso:</strong> <span>Apenas 25 gramas</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <strong>Material:</strong> <span>TR90 + Policarbonato</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <strong>Proteção:</strong> <span>UV400 Certificado</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <strong>Lentes:</strong> <span>Polarizadas com Revestimento Anti-Reflexo</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <strong>Garantia:</strong> <span>1 Ano Contra Defeitos</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            <strong>Cores:</strong> <span>Preto Neon, Azul Racing, Vermelho Fire</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">Depoimentos</span>
+                <h2>ATLETAS REAIS. RESULTADOS REAIS.</h2>
+                <p>Junte-se a mais de 10.000 atletas que elevaram seu jogo com VELOX Pro.</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card scroll-reveal">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                    <p class="testimonial-text">"Uso em todos os meus treinos de ciclismo. Nunca mais tive problemas com embaçamento ou óculos escorregando. A visibilidade é incrível!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">CR</div>
+                        <div class="testimonial-info">
+                            <h4>Carlos Rodrigues</h4>
+                            <p>Ciclista Profissional</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card scroll-reveal">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                    <p class="testimonial-text">"Corro maratonas e precisava de algo que aguentasse o ritmo. O VELOX Pro é tão leve que esqueço que estou usando. Recomendo demais!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MS</div>
+                        <div class="testimonial-info">
+                            <h4>Mariana Silva</h4>
+                            <p>Maratonista</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card scroll-reveal">
+                    <div class="testimonial-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    </div>
+                    <p class="testimonial-text">"Faço triathlon e testei vários óculos. Nenhum se compara ao conforto e estabilidade do VELOX. Vale cada centavo!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">PF</div>
+                        <div class="testimonial-info">
+                            <h4>Pedro Fernandes</h4>
+                            <p>Triatleta</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="proof-stats scroll-reveal">
+                <div class="proof-stat">
+                    <h3>10.000+</h3>
+                    <p>Atletas Satisfeitos</p>
+                </div>
+                <div class="proof-stat">
+                    <h3>4.9/5</h3>
+                    <p>Avaliação Média</p>
+                </div>
+                <div class="proof-stat">
+                    <h3>98%</h3>
+                    <p>Taxa de Recomendação</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section class="offer" id="offer">
+        <div class="container">
+            <div class="offer-container scroll-reveal">
+                <div class="offer-badge">Oferta Limitada</div>
+                <div class="offer-header">
+                    <h2>OFERTA ESPECIAL DE LANÇAMENTO</h2>
+                    <p>Garanta o seu VELOX Pro com condições exclusivas por tempo limitado.</p>
+                </div>
+                <div class="offer-product">
+                    <div class="offer-product-image">
+                        <img src="https://image.qwenlm.ai/public_source/67f2288e-e0de-4799-bf6f-06142608c664/1deb4c61e-5816-41d3-bce4-6cd420a2cf0b.png" alt="VELOX Pro Package">
+                    </div>
+                    <div class="offer-product-details">
+                        <h3>VELOX Pro - Edição Elite</h3>
+                        <div class="offer-bonuses">
+                            <h4>
+                                <svg width="20" height="20" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                                BÔNUS INCLUSOS
+                            </h4>
+                            <ul class="bonus-list">
+                                <li>
+                                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    Estojo Rígido de Proteção (R$ 89,90)
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    Kit de Limpeza Microfibra (R$ 49,90)
+                                </li>
+                                <li>
+                                    <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                                    Garantia Estendida de 1 Ano (R$ 129,90)
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="offer-pricing">
+                    <div class="price-old">De R$ 599,90</div>
+                    <div class="price-new"><span>R$</span> 297<span>,90</span></div>
+                    <div class="price-installments">ou 12x de R$ 29,90 sem juros</div>
+                </div>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span id="hours">23</span>
+                        <label>Horas</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">59</span>
+                        <label>Min</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">59</span>
+                        <label>Seg</label>
+                    </div>
+                </div>
+                <div class="offer-cta">
+                    <a href="#" class="btn btn-primary" onclick="alert('Redirecionando para checkout...')">COMPRAR AGORA - ECONOMIZE R$ 302</a>
+                    <div class="offer-guarantee">
+                        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                        Compra 100% Segura e Criptografada
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee">
+        <div class="container">
+            <div class="guarantee-container scroll-reveal">
+                <div class="guarantee-seal">
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                </div>
+                <h2>DESAFIO 30 DIAS SEM RISCO</h2>
+                <p>Se você não sentir a diferença na sua performance, devolvemos 100% do seu dinheiro. Sem perguntas, sem burocracia.</p>
+                <a href="#offer" class="btn btn-primary">QUERO TESTAR AGORA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header scroll-reveal">
+                <span class="section-tag">Dúvidas Frequentes</span>
+                <h2>TIRE SUAS DÚVIDAS</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item scroll-reveal">
+                    <div class="faq-question">
+                        <h3>O VELOX Pro serve para quem usa grau?</h3>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim! O VELOX Pro é compatível com lentes de grau. Trabalhamos com laboratórios parceiros que podem inserir sua prescrição nas lentes polarizadas. Entre em contato com nosso suporte para mais detalhes.</p>
+                    </div>
+                </div>
+                <div class="faq-item scroll-reveal">
+                    <div class="faq-question">
+                        <h3>Qual o prazo de entrega?</h3>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O prazo de entrega varia de 5 a 10 dias úteis para todo o Brasil. O frete é grátis para compras acima de R$ 200. Você receberá um código de rastreio assim que seu pedido for despachado.</p>
+                    </div>
+                </div>
+                <div class="faq-item scroll-reveal">
+                    <div class="faq-question">
+                        <h3>Como faço a limpeza das lentes?</h3>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Recomendamos usar apenas o kit de limpeza microfibra incluso na compra. Evite produtos químicos abrasivos, álcool ou panos ásperos que possam danificar o revestimento polarizado.</p>
+                    </div>
+                </div>
+                <div class="faq-item scroll-reveal">
+                    <div class="faq-question">
+                        <h3>O que cobre a garantia de 1 ano?</h3>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A garantia cobre qualquer defeito de fabricação, incluindo problemas com as hastes, lentes ou estrutura TR90. Danos por uso inadequado ou acidentes não estão cobertos, mas oferecemos reparo com custo reduzido.</p>
+                    </div>
+                </div>
+                <div class="faq-item scroll-reveal">
+                    <div class="faq-question">
+                        <h3>Posso trocar se não gostar do modelo?</h3>
+                        <div class="faq-icon">
+                            <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Com certeza! Dentro dos 30 dias do Desafio Sem Risco, você pode solicitar troca de cor/modelo ou reembolso total. O produto deve estar em perfeito estado, na embalagem original.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 2L2 9L16 16L30 9L16 2Z" fill="#39FF14"/>
+                            <path d="M2 23L16 30L30 23V9L16 16L2 9V23Z" fill="#39FF14" fill-opacity="0.5"/>
+                        </svg>
+                        VELOX<span>PRO</span>
+                    </a>
+                    <p>Óculos esportivos de alta performance para atletas que não aceitam menos que a excelência.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#offer">Comprar Agora</a></li>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Tecnologia</a></li>
+                        <li><a href="#">Depoimentos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Política de Troca</a></li>
+                        <li><a href="#">Garantia</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="mailto:suporte@veloxpro.com.br">suporte@veloxpro.com.br</a></li>
+                        <li><a href="tel:+5511999999999">(11) 99999-9999</a></li>
+                        <li><a href="#">Seg-Sex: 9h às 18h</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 VELOX Pro. Todos os direitos reservados.</p>
+                <div class="payment-methods">
+                    <span>💳 Visa</span>
+                    <span>💳 Master</span>
+                    <span>💳 Elo</span>
+                    <span>💠 Pix</span>
+                    <span>📄 Boleto</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="#offer" class="btn btn-primary">COMPRAR AGORA</a>
+    </div>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll Reveal Animation
+        const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
+        
+        const revealOnScroll = () => {
+            scrollRevealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+
+        // Countdown Timer
+        const countdown = () => {
+            const now = new Date();
+            const tomorrow = new Date(now);
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+            
+            const diff = tomorrow - now;
+            
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        };
+
+        setInterval(countdown, 1000);
+        countdown();
+
+        // Smooth Scroll for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header Background on Scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(18, 18, 18, 0.98)';
+            } else {
+                header.style.background = 'rgba(18, 18, 18, 0.95)';
+            }
+        });
+
+        // Button Ripple Effect
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const ripple = document.createElement('span');
+                ripple.style.cssText = `
+                    position: absolute;
+                    background: rgba(255,255,255,0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                    left: ${x}px;
+                    top: ${y}px;
+                    width: 100px;
+                    height: 100px;
+                    margin-left: -50px;
+                    margin-top: -50px;
+                `;
+                
+                this.style.position = 'relative';
+                this.style.overflow = 'hidden';
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
